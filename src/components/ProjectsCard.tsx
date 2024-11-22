@@ -4,7 +4,7 @@ import React from "react";
 const ProjectsData = [
   {
     id: 1,
-    title: "portfolio",
+    title: "Portfolio",
     description: "This project is made up of next js and tailwind css   ",
     images: "/portfolio1.png",
 
@@ -87,7 +87,7 @@ const ProjectsData = [
   },
   {
     id: 9,
-    title: "Potfolio",
+    title: "Portfolio",
     description: "This project is made up of nextjs custom css",
     images: "/potfolio.png",
 
@@ -98,15 +98,16 @@ const ProjectsData = [
 
 function ProjectsCard() {
   return (
-    <div className=" ">
-      <ul className=" gap-8 px-28 bg-white grid grid-cols-3 items-center">
+    <div className="px-5 sm:px-10 md:px-28">
+      <ul className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center">
         {ProjectsData.map((project) => (
           <li
-            className="shadow-xl rounded-md h-[300px] flex flex-col cursor-pointer "
+            className="shadow-xl rounded-md flex flex-col cursor-pointer lg:h-[300px] md:h-[280px] overflow-hidden"
             key={project?.id}
           >
+            {/* Image Section */}
             <div
-              className="h-[200px] w-full border-b border-black rounded-t-md"
+              className="h-[200px] w-full border-b border-black"
               style={{
                 background: `url(${project?.images})`,
                 backgroundSize: "cover",
@@ -114,21 +115,25 @@ function ProjectsCard() {
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="p-5">
-              <h1 className=" text-lg font-bold text-center">
+
+            {/* Content Section */}
+            <div className="p-5 flex flex-col">
+              <h1 className="text-lg sm:text-xl font-bold text-center">
                 {project?.title}
               </h1>
-              <p className="text-sm text-gray-500 ">{project?.description}</p>
+              <p className="text-sm sm:text-base text-gray-500 text-justify">
+                {project?.description}
+              </p>
               <div className="flex gap-5 mt-4">
                 <Link
                   href={project?.gitUrl!}
-                  className="text-[#457B9D] text-sm"
+                  className="text-[#457B9D] text-sm sm:text-base"
                 >
                   Github
                 </Link>
                 <Link
                   href={project?.previewUrl!}
-                  className="text-[#457B9D] text-sm"
+                  className="text-[#457B9D] text-sm sm:text-base"
                 >
                   Link View
                 </Link>
@@ -142,3 +147,44 @@ function ProjectsCard() {
 }
 
 export default ProjectsCard;
+
+// <div className=" ">
+//   <ul className=" gap-8 px-28 bg-white grid grid-cols-3 items-center">
+//     {ProjectsData.map((project) => (
+//       <li
+//         className="shadow-xl rounded-md h-[300px] flex flex-col cursor-pointer "
+//         key={project?.id}
+//       >
+//         <div
+//           className="h-[200px] w-full border-b border-black rounded-t-md"
+//           style={{
+//             background: `url(${project?.images})`,
+//             backgroundSize: "cover",
+//             backgroundRepeat: "no-repeat",
+//             backgroundPosition: "center",
+//           }}
+//         ></div>
+//         <div className="p-5">
+//           <h1 className=" text-lg font-bold text-center">
+//             {project?.title}
+//           </h1>
+//           <p className="text-sm text-gray-500 ">{project?.description}</p>
+//           <div className="flex gap-5 mt-4">
+//             <Link
+//               href={project?.gitUrl!}
+//               className="text-[#457B9D] text-sm"
+//             >
+//               Github
+//             </Link>
+//             <Link
+//               href={project?.previewUrl!}
+//               className="text-[#457B9D] text-sm"
+//             >
+//               Link View
+//             </Link>
+//           </div>
+//         </div>
+//       </li>
+//     ))}
+//   </ul>
+// </div>
