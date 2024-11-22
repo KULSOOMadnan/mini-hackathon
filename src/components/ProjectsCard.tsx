@@ -126,13 +126,13 @@ function ProjectsCard() {
               </p>
               <div className="flex gap-5 mt-4">
                 <Link
-                  href={project?.gitUrl!}
+                  href={project?.gitUrl || '/'}
                   className="text-[#457B9D] text-sm sm:text-base"
                 >
                   Github
                 </Link>
                 <Link
-                  href={project?.previewUrl!}
+                  href={project?.previewUrl || '/'}
                   className="text-[#457B9D] text-sm sm:text-base"
                 >
                   Link View
